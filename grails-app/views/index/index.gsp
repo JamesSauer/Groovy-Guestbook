@@ -8,9 +8,9 @@
     <p>Leave a message if you like!</p>
     <ul id="comment-list">
         <g:each in="${entries}" var="entry">
-            <li class="font-${entry.font}"> 
+            <li> 
                 <label for="entry-${entry.id}">${entry.author} on ${entry.creationDate}:</label>
-                <p id="entry-${id}">${entry.text}</p>
+                <p id="entry-${id}" class="font-${entry.font}">${entry.text}</p>
             </li>
         </g:each>
         <li>

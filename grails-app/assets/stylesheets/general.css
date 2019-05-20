@@ -24,6 +24,9 @@ html {
 
     font-size: 20px;
     font-family: monospace;
+
+    background: url(placeholder_bg.jpg);
+    background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,6 +62,18 @@ form *::placeholder {
 button {
     cursor: pointer;
     font-family: monospace;
+}
+
+.font-Pacifico {
+    font-family: Pacifico, sans-serif;
+}
+
+.font-Damion {
+    font-family: Damion, sans-serif;
+}
+
+.font-IndieFlower {
+    font-family: IndieFlower, sans-serif;
 }
 
 #main-column, #main-footer {

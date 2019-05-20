@@ -1,0 +1,74 @@
+@font-face {
+    font-family: Pacifico;
+    src: url(Pacifico-Regular.ttf);
+}
+
+@font-face {
+    font-family: Damion;
+    src: url(Damion-Regular.ttf);
+}
+
+@font-face {
+    font-family: IndieFlower;
+    src: url(IndieFlower.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    padding: 50px;
+
+    font-size: 20px;
+    font-family: monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Pacifico, sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+li * {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+
+    border-radius: 10px;
+}
+
+form * {
+    padding: 8px;
+    border: 2px solid black;
+    resize: none;
+
+    font-size: 20px;
+    font-family: Damion;
+}
+
+form *::placeholder {
+    font-size: 20px;
+    font-family: Damion;
+}
+
+button {
+    cursor: pointer;
+    font-family: monospace;
+}
+
+#main-column, #main-footer {
+    width: 50%;
+    margin: auto;
+
+    text-align: center;
+}
+
+#comment-list {
+    width: 50%;
+    margin: auto;
+}

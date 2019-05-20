@@ -2,15 +2,10 @@ package zenjob_guestbook
 
 class Entry {
 
-    UUID id
-
     String author
-
-    Date creationDate
-
     String text
-
     String font
+    Date creationDate = new Date()
 
     static constraints = {
         author maxSize: 64

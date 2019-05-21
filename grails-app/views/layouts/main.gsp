@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
+    <%-- <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/> --%>
     <asset:stylesheet src="application.css"/>
     <title>Hello Zenjob!</title>
     <g:layoutHead/>
@@ -19,7 +19,7 @@
     <footer id="main-footer">
         <ul>
             <p>
-                A job application by James Sauer!
+                A job application by James Sauer.<br>
                 Reach me through mail@jamessauer.com!
             </p>
         </ul>

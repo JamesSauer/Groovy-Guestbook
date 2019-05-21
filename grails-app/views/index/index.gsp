@@ -8,15 +8,16 @@
     <p>Leave a message if you like!</p>
     <ul id="comment-list">
         <g:each in="${entries}" var="entry">
-            <li> 
+            <li class="entry"> 
                 <label for="entry-${entry.id}">${entry.author} on ${entry.creationDate}:</label>
                 <p id="entry-${id}" class="font-${entry.font}">${entry.text}</p>
             </li>
         </g:each>
-        <li>
-            <form action="/eternalize" method="POST">
-                <input type="text" id="name-input" name="name" size="30" placeholder="What's your name?"><br>
-                <textarea name="text" id="text-input" cols="30" rows="5" placeholder="Your message here!"></textarea><br>
+        <li class="entry">
+            <form action="/index/addEntry" method="POST" class="font-${font}">
+                <input type="text" id="author-input" name="author" class="font-${font}" size="64" placeholder="What's your name?"><br>
+                <textarea id="text-input" name="text" class="font-${font}" cols="30" rows="5" maxlength="512" placeholder="Your message here!"></textarea><br>
+                <input type="hidden" id="font-input" name="font" value="${font}">
                 <button type="submit">Eternalize!</button>
             </form>
         </li>

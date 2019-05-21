@@ -51,12 +51,10 @@ form * {
     resize: none;
 
     font-size: 20px;
-    font-family: Damion;
 }
 
 form *::placeholder {
     font-size: 20px;
-    font-family: Damion;
 }
 
 button {
@@ -86,4 +84,8 @@ button {
 #comment-list {
     width: 50%;
     margin: auto;
+}
+
+.entry {
+    border-top: 2px solid black;
 }

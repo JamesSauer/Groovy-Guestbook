@@ -14,7 +14,7 @@
             </li>
         </g:each>
         <li class="entry">
-            <form action="/index/addEntry" method="POST" class="font-${font}">
+            <form action="/index/addEntry" method="POST">
                 <input type="text" id="author-input" name="author" class="font-${font}" size="64" placeholder="What's your name?"><br>
                 <textarea id="text-input" name="text" class="font-${font}" cols="30" rows="5" maxlength="512" placeholder="Your message here!"></textarea><br>
                 <input type="hidden" id="font-input" name="font" value="${font}">

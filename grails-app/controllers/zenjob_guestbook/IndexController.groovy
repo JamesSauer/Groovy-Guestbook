@@ -19,4 +19,7 @@ class IndexController {
         new Entry(author:author, text:text, font:font).save(flush:true)
         redirect action: 'index'
     }
+
+    /* TODO: Final thing to do: Look through the Grails documentation for best practices you
+    didn't catch and implement them. E.g. putting business logic in services.*/
 }

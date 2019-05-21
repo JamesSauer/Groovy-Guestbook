@@ -20,7 +20,9 @@
         <ul>
             <p>
                 A job application by James Sauer.<br>
-                Reach me through mail@jamessauer.com!
+                Reach me through mail@jamessauer.com!<br>
+                Source code available on <a href="#">Github</a>.
+                <!-- TODO: Add actual Github link. -->
             </p>
         </ul>
     </footer>

@@ -1,3 +1,5 @@
+<%-- This default template is good enough for now.
+TODO: Improve the part of it that gets rendered in production. --%>
 <!doctype html>
 <html>
     <head>

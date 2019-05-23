@@ -2,7 +2,8 @@ package zenjob_guestbook
 
 class IndexController {
     Random random = new Random()
-    // TODO: Create a domain class for fonts and generate the instances dyncamically by reading the /assets/fonts directory.
+    // TODO: Create a domain class for fonts and generate the instances dynamically by reading the /assets/fonts directory.
+    // TODO: Generate the CSS for applying the fonts dynamically as well.
     def fontList = ['Pacifico', 'Damion', 'IndieFlower']
 
     def index() {
@@ -15,7 +16,6 @@ class IndexController {
 
         // TODO: Investigate whether manual input validation is necessary. Does the DB itself maybe do it well enough?
 
-        // TODO: Investigate what flush:true means and why it doesn't work without it.
         new Entry(author:author, text:text, font:font).save(flush:true)
         redirect action: 'index'
     }

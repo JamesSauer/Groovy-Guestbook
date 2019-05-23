@@ -1,14 +1,13 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>Page Not Found</title>
-        <meta name="layout" content="main">
-        <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
+        <meta name="layout" content="main"/>
     </head>
     <body>
-        <ul class="errors">
-            <li>Error: Page Not Found (404)</li>
-            <li>Path: ${request.forwardURI}</li>
-        </ul>
+        <h1>Error: No Page Found (404) at ${request.forwardURI}</h1>
+        <p>
+            There isn't much on this site though anyway, other than the front page: <br>
+            <a href="/">Click here to get there!</a>
+        </p>
     </body>
 </html>

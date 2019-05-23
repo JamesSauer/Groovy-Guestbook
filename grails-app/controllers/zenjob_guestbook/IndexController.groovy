@@ -8,6 +8,16 @@ class IndexController {
 
     def index() {
         def font = fontList[random.nextInt() % fontList.size()]
+
+        // The following is just here for testing:
+        Akismet.checkComment(
+            blog: Constants.env == 'PRODUCTION' ? request.getSiteUrl() : 'https://www.example.com',
+            user_ip: request.getRemoteAddr(),
+            user_agent: request.getHeader("User-Agent"),
+            is_test: Constants.env == 'PRODUCTION' ? '0' : '1'
+        )
+        // End test.
+
         respond([entries: Entry.list(), font: font])
     }
 

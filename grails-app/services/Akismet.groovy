@@ -1,49 +1,46 @@
 package zenjob_guestbook
 
 class Akismet {
-    static verifyKey(values) {
+    static verifyKey(Map valuesMap, Closure callback = {String result -> println result}) {
         String url = 'https://rest.akismet.com/1.1/verify-key'
 
-        values.key = Constants.akismetKey
+        valuesMap.key = Constants.akismetKey
+        String valuesString = encodeRequestBody(valuesMap)
 
-        values = mapToQueryComponent(values)
-
-        makePostRequest(url, values)
+        makePostRequest(url, valuesString, callback)
     }
 
-    /*
-    The following values are required for calling Akismet's comment check:
-    blog (required)	
-    user_ip (required)	
-    user_agent (required)
-    */
-
-    static checkComment(values) {
+    static checkComment(Map valuesMap, Closure callback = {String result -> println result}) {
         String url = "https://${Constants.akismetKey}.rest.akismet.com/1.1/comment-check"
 
-        values = mapToQueryComponent(values)
+        String valuesString = encodeRequestBody(valuesMap)
 
-        makePostRequest(url, values)
+        def modifiedCallback = {result -> callback(result == 'true' ? true : false)}
+        makePostRequest(url, valuesString, modifiedCallback)
     }
 
-    private static mapToQueryComponent(map) {
+    private static encodeRequestBody(Map map) {
         def str = ''
         map.each{key, value ->
+            if(!value) {
+                return
+            }
             str += "${key}=${value.encodeURL()}&"
         }
         str = str.replaceAll(~/\&$/, '')
         return str
     }
 
-    private static makePostRequest(String url, String message) {
+    private static makePostRequest(String url, String values, Closure callback = {String result -> println result}) {
         def post = new URL(url).openConnection();
         post.setRequestMethod("POST")
         post.setDoOutput(true)
-        post.getOutputStream().write(message.getBytes("UTF-8"));
+        post.getOutputStream().write(values.getBytes("UTF-8"));
 
         def postRC = post.getResponseCode();
         if(postRC.equals(200)) {
-            println post.getInputStream().getText()
+            def result = post.getInputStream().getText()
+            callback(result)
         }
     }
 }

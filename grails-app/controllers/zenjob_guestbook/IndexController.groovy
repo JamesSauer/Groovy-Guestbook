@@ -9,29 +9,38 @@ class IndexController {
     def index() {
         def font = fontList[random.nextInt() % fontList.size()]
 
-        // The following is just here for testing:
-        Akismet.checkComment(
-            blog: Constants.env == 'PRODUCTION' ? request.getSiteURL() : 'https://zenjobwillyouhire.me',
-            user_ip: request.getRemoteAddr(),
-            user_agent: request.getHeader("User-Agent"),
-            is_test: Constants.env == 'PRODUCTION' ? '0' : '1',
-            comment_author: 'viagra-test-123'
-        )
-        // Akismet.verifyKey(
-        //     blog: 'https://zenjobwillyouhire.me'
-        // )
-        // End test.
-
-        respond([entries: Entry.list(), font: font])
+        respond([entries: Entry.findAllByIsSpam(false), font: font])
     }
 
-    def addEntry(String author, String text, String font) {
-        // TODO: Implement spam protection. Akismet probably.
-
+    def addEntry(String author, String text, String email, String font) {
         // TODO: Investigate whether manual input validation is necessary. Does the DB itself maybe do it well enough?
 
-        new Entry(author:author, text:text, font:font).save(flush:true)
-        redirect action: 'index'
+        Akismet.checkComment([
+            is_test: Constants.env != 'PRODUCTION' ? '1' : null,
+
+            comment_author: author,
+            comment_author_email: null,
+            comment_content: text,
+            comment_type: 'guestbook-entry',
+
+            /*required*/blog: Constants.env == 'PRODUCTION' ? request.getSiteURL() : 'https://zenjobwillyouhire.me',
+            blog_lang: 'en, de',
+            blog_charset: 'UTF-8',
+
+            /*required*/user_ip: request.getRemoteAddr(),
+            /*required*/user_agent: request.getHeader("User-Agent"),
+            referrer: request.getHeader("HTTP_REFERER")
+        ], {result ->
+            println "The comment was...: ${result ? 'Spam!' : 'A nice message!'}"
+            new Entry(
+                author:author,
+                email:email,
+                text:text,
+                font:font,
+                isSpam:result)
+            .save(flush:true)
+            redirect action: 'index'
+        })
     }
 
     /* TODO: Final thing to do: Look through the Grails documentation for best practices you

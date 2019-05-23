@@ -11,11 +11,15 @@ class IndexController {
 
         // The following is just here for testing:
         Akismet.checkComment(
-            blog: Constants.env == 'PRODUCTION' ? request.getSiteUrl() : 'https://www.example.com',
+            blog: Constants.env == 'PRODUCTION' ? request.getSiteURL() : 'https://zenjobwillyouhire.me',
             user_ip: request.getRemoteAddr(),
             user_agent: request.getHeader("User-Agent"),
-            is_test: Constants.env == 'PRODUCTION' ? '0' : '1'
+            is_test: Constants.env == 'PRODUCTION' ? '0' : '1',
+            comment_author: 'viagra-test-123'
         )
+        // Akismet.verifyKey(
+        //     blog: 'https://zenjobwillyouhire.me'
+        // )
         // End test.
 
         respond([entries: Entry.list(), font: font])

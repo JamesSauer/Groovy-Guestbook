@@ -7,7 +7,7 @@ class BootStrap {
             java.net.URLEncoder.encode(delegate, "UTF-8")
         }
 
-        javax.servlet.http.HttpServletRequest.metaClass.getSiteUrl = {
+        javax.servlet.http.HttpServletRequest.metaClass.getSiteURL = {
             return ("${delegate.scheme}://${delegate.serverName}")
         }
 

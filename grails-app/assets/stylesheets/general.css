@@ -69,7 +69,7 @@ li {
 li * {
     display: block;
     width: 100%;
-    margin: 10px 0;
+    margin: 10px auto;
 
     border-radius: 10px;
 }
@@ -125,19 +125,12 @@ input[type=submit] {
     border-radius: 7px;
 }
 
-@media only screen and (min-width: 600px) {
-    form * {
-        display: inline-block;
-    }
-    #author-input, #email-input {
-        
-        width: 45%;
-    }
-  }
-
 @media only screen and (min-width: 1081px) {
     #main-column{
         width: 1080px;
         margin: 0 auto;
+    }
+    li * {
+        width: 80%;
     }
   }

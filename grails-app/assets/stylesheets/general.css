@@ -1,17 +1,32 @@
 @font-face {
+    font-family: AnonymousPro;
+    src: url(AnonymousPro-Regular.ttf);
+}
+
+@font-face {
     font-family: Pacifico;
     src: url(Pacifico-Regular.ttf);
+}
+.font-Pacifico {
+    font-family: Pacifico, sans-serif;
 }
 
 @font-face {
     font-family: Damion;
     src: url(Damion-Regular.ttf);
 }
+.font-Damion {
+    font-family: Damion, sans-serif;
+}
 
 @font-face {
     font-family: IndieFlower;
     src: url(IndieFlower.ttf);
 }
+.font-IndieFlower {
+    font-family: IndieFlower, sans-serif;
+}
+
 
 * {
     box-sizing: border-box;
@@ -20,18 +35,31 @@
 }
 
 html {
-    padding: 50px;
-
     font-size: 20px;
-    font-family: monospace;
+    font-family: AnonymousPro, Arial, monospace;
     
-    /* TODO: Shoot a better background foto: */
-    background: url(placeholder_bg.jpg);
+    background: url(background.jpg);
     background-size: cover;
 }
 
+html, body {
+    height: 100%;
+}
+
+#page-wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -8em;
+}
+
+#main-footer, #push {
+    height: 8em;
+    padding: 10px;
+}
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: Pacifico, sans-serif;
+    /* font-family: Pacifico, sans-serif; */
 }
 
 li {
@@ -48,51 +76,68 @@ li * {
 
 form * {
     padding: 8px;
-    border: 2px solid black;
-    resize: none;
+    border: 1px dashed #111;
+    resize: vertical;
+    overflow: hidden;
 
     font-size: 20px;
+
+    background: rgba(0,0,0,0.5);
+    color: #eee;
 }
 
 form *::placeholder {
     font-size: 20px;
+    font-family: AnonymousPro, Arial, monospace;
 }
 
-button {
+input[type=submit] {
     cursor: pointer;
-    font-family: monospace;
+    font-family: AnonymousPro, Arial, monospace;
 }
 
-.font-Pacifico {
-    font-family: Pacifico, sans-serif;
-}
-
-.font-Damion {
-    font-family: Damion, sans-serif;
-}
-
-.font-IndieFlower {
-    font-family: IndieFlower, sans-serif;
+#main-header, #main-footer {
+    text-align: center;
+    
+    color: #eee;
+    background: rgba(0,0,0,0.5);
 }
 
 #main-column, #main-footer {
-    width: 50%;
-    margin: auto;
+    width: 100%;
+    margin: 0 auto;
 
     text-align: center;
 }
 
-#main-footer {
-    margin-top: 30px;
-    border-top: 2px solid black;
-    padding-top: 20px;
-}
-
 #comment-list {
-    width: 50%;
-    margin: auto;
+    margin: 0 30px;
 }
 
-.entry {
-    border-top: 2px solid black;
+.entry::after {
+    display: block;
+    content: "";
+    height: 7px;
+    width: 20%;
+    margin: 0 auto 10px;
+
+    background: rgba(0,0,0,0.5);
+    border-radius: 7px;
 }
+
+@media only screen and (min-width: 600px) {
+    form * {
+        display: inline-block;
+    }
+    #author-input, #email-input {
+        
+        width: 45%;
+    }
+  }
+
+@media only screen and (min-width: 1081px) {
+    #main-column{
+        width: 1080px;
+        margin: 0 auto;
+    }
+  }

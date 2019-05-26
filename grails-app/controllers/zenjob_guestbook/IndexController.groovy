@@ -2,8 +2,6 @@ package zenjob_guestbook
 
 class IndexController {
     Random random = new Random()
-    // TODO: Create a domain class for fonts and generate the instances dynamically by reading the /assets/fonts directory.
-    // TODO: Generate the CSS for applying the fonts dynamically as well.
     def fontList = ['Pacifico', 'Damion', 'IndieFlower']
 
     def index() {
@@ -13,7 +11,6 @@ class IndexController {
     }
 
     def addEntry(String author, String text, String email, String font) {
-        // TODO: Investigate whether manual input validation is necessary. Does the DB itself maybe do it well enough?
 
         Akismet.checkComment([
             is_test: Constants.env != 'PRODUCTION' ? '1' : null,

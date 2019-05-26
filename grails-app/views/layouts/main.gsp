@@ -10,17 +10,24 @@
     <g:layoutHead/>
 </head>
 <body>
-    <g:if test="${flash.message}">
-        <div class="message">${flash.message}</div>
-    </g:if>
-    <main id="main-column">
-        <g:layoutBody/>
-    </main>
+    <div id="page-wrapper">
+        <header id="main-header">
+            <h1>Welcome to my <span class="font-Pacifico">groovy</span> guestbook!</h1>
+            <p>Leave a message if you like!</p>
+            <g:if test="${flash.message}">
+                <div class="message">${flash.message}</div>
+            </g:if>
+        </header>
+        <main id="main-column">
+            <g:layoutBody/>
+        </main>
+        <div id="push"></div>
+    </div>
     <footer id="main-footer">
         <ul>
             <p>
                 A job application by James Sauer.<br>
-                Reach me through mail@jamessauer.com!<br>
+                Reach me through <a href="mailto:mail@jamessauer.com">mail@jamessauer.com</a>!<br>
                 Source code available on <a href="https://github.com/JamesSauer/Groovy-Guestbook">Github</a>.
             </p>
         </ul>

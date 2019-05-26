@@ -11,3 +11,4 @@ out/
 .settings
 .classpath
 grails-app/conf/akismetKey.txt
+server-logs/

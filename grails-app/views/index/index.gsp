@@ -4,6 +4,7 @@
     <meta name="layout" content="main"/>
 </head>
 <body>
+    <%-- TODO: Give this some final touches. --%>
     <h1>Welcome to my groovy guestbook!</h1>
     <p>Leave a message if you like!</p>
     <ul id="comment-list">

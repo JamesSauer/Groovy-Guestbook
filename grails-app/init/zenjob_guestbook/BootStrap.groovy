@@ -15,18 +15,20 @@ class BootStrap {
             blog: 'https://zenjobwillyouhire.me'
         )
 
-        new Entry(
-            author: 'Bilbo',
-            font: 'Pacifico',
-            text: 'Huhuuuuuuuu!',
-            isSpam: false
-        ).save()
-        new Entry(
-            author: 'Elon Musk',
-            font: 'IndieFlower',
-            text: 'Hey James, nice app you got there! Good luck with your job application!',
-            isSpam: false
-        ).save()
+        if(Constants.env != 'PRODUCTION') {
+            new Entry(
+                author: 'Bilbo',
+                font: 'Pacifico',
+                text: 'Huhuuuuuuuu!',
+                isSpam: false
+            ).save()
+            new Entry(
+                author: 'Elon Musk',
+                font: 'IndieFlower',
+                text: 'Hey James, nice app you got there! Good luck with your job application!',
+                isSpam: false
+            ).save()
+        }
     }
     def destroy = {
     }

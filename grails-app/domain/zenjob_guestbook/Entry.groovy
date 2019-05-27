@@ -3,7 +3,7 @@ package zenjob_guestbook
 class Entry {
 
     String author
-    String email = ''
+    String email
     String text
     String font
     Date creationDate = new Date()
@@ -13,6 +13,6 @@ class Entry {
         author maxSize: 64
         email maxSize: 128
         text maxSize: 512
-        font inList: ['Damion', 'IndieFlower', 'Pacifico']
+        font inList: Constants.fontList
     }
 }

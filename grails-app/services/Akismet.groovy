@@ -15,7 +15,7 @@ class Akismet {
 
         String valuesString = encodeRequestBody(valuesMap)
 
-        def modifiedCallback = {result -> callback(result == 'true' ? true : false)}
+        def modifiedCallback = {result -> callback(result == 'false' ? false : true)}
         makePostRequest(url, valuesString, modifiedCallback)
     }
 

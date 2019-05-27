@@ -4,7 +4,6 @@
     <meta name="layout" content="main"/>
 </head>
 <body>
-    <%-- TODO: Give this some final touches. --%>
     <ul id="comment-list">
         <li class="entry">
             <form action="/index/addEntry" method="POST">

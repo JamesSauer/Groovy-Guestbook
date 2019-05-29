@@ -16,7 +16,14 @@
         </li>
         <g:each in="${entries}" var="entry">
             <li class="entry"> 
-                <label for="entry-${entry.id}"><span class="font-${entry.font}">${entry.author}</span> on ${entry.creationDate}:</label>
+                <label for="entry-${entry.id}">
+                    <span class="author-name font-${entry.font}">
+                        ${entry.author}<br>
+                    </span>
+                    <span class="entry-date">
+                        on ${entry.creationDate}:
+                    </span>
+                </label>
                 <p id="entry-${id}" class="font-${entry.font}">${entry.text}</p>
             </li>
         </g:each>

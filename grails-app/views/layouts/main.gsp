@@ -12,7 +12,7 @@
 <body>
     <div id="page-wrapper">
         <header id="main-header">
-            <h1>Welcome to my <span class="font-Pacifico">groovy</span> guestbook!</h1>
+            <h1>Welcome to my <span class="font-GochiHand">groovy</span> guestbook!</h1>
             <p>Leave a message if you like!</p>
             <g:if test="${flash.message}">
                 <div class="message">${flash.message}</div>

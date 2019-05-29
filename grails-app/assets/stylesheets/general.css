@@ -4,11 +4,11 @@
 }
 
 @font-face {
-    font-family: Pacifico;
-    src: url(Pacifico-Regular.ttf);
+    font-family: SueEllenFrancisco;
+    src: url(SueEllenFrancisco.ttf);
 }
-.font-Pacifico {
-    font-family: Pacifico, sans-serif;
+.font-SueEllenFrancisco {
+    font-family: SueEllenFrancisco, sans-serif;
 }
 
 @font-face {
@@ -25,6 +25,20 @@
 }
 .font-IndieFlower {
     font-family: IndieFlower, sans-serif;
+}
+@font-face {
+    font-family: Norican;
+    src: url(Norican-Regular.ttf);
+}
+.font-Norican {
+    font-family: Norican, sans-serif;
+}
+@font-face {
+    font-family: GochiHand;
+    src: url(GochiHand-Regular.ttf);
+}
+.font-GochiHand {
+    font-family: GochiHand, sans-serif;
 }
 
 
@@ -58,25 +72,22 @@ html, body {
     padding: 10px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    /* font-family: Pacifico, sans-serif; */
-}
-
 li {
     list-style: none;
 }
 
 li * {
-    display: block;
+    /* display: block; */
     width: 100%;
+    min-height: 2.2em;
     margin: 10px auto;
 
-    border-radius: 10px;
+    border-radius: 1em;
 }
 
 form * {
-    padding: 8px;
-    border: 1px dashed #111;
+    padding: 0.4em;
+    border: none;
     resize: vertical;
     overflow: hidden;
 
@@ -123,6 +134,14 @@ input[type=submit] {
 
     background: rgba(0,0,0,0.5);
     border-radius: 7px;
+}
+
+.author-name {
+    font-size: 1.3em;
+}
+
+.entry-date {
+    font-size: 0.8em;
 }
 
 @media only screen and (min-width: 1081px) {
